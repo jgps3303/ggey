@@ -7,6 +7,20 @@ public class LiquMove : MonoBehaviour
     [SerializeField] Rigidbody2D[] bone;
 
     [SerializeField] float speed;
+    [SerializeField] float jumpForce;
+    [SerializeField] float climbSpeed;
+
+    [SerializeField] bool[] which;
+
+    [SerializeField] bool canJump;
+
+    public bool canClimb=false;
+
+    // [SerializeField] Transform m_GroundCheck;
+
+    bool isJump;
+
+    float currentTime;
 
 
     // Start is called before the first frame update
@@ -19,14 +33,72 @@ public class LiquMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float axix = Input.GetAxisRaw("Horizontal");
-        if(axix != 0)
+        if(which[0]==true)
         {
-            for (int i = 0; i < bone.Length - 1;i++)
+            float axix = Input.GetAxisRaw("Horizontal");
+            if(axix != 0)
             {
-                print(axix);
-                bone[i].AddForce(new Vector2(axix * speed, 0));
+                for (int i = 0; i < bone.Length - 1;i++)
+                {
+                    // print(axix);
+                    bone[i].AddForce(new Vector2(axix * speed, 0));
+                }
             }
+        }    
+        else if(which[1]==true)
+        {
+            if(canClimb==false)
+            {
+                float axixalt = Input.GetAxisRaw("HorizontalAlt");
+                if(axixalt != 0)
+                {
+                    for (int i = 0; i < bone.Length - 1;i++)
+                    {
+                        // print(axixalt);
+                        bone[i].AddForce(new Vector2(axixalt * speed, 0));
+                    }
+                }
+            }
+            if(canClimb==true)
+            {
+                float axixalt = Input.GetAxisRaw("Vertical");
+                if(axixalt != 0)
+                {
+                    for (int i = 0; i < bone.Length - 1;i++)
+                    {
+                        // print(axixalt);
+                        bone[i].AddForce(new Vector2(0,axixalt*climbSpeed));
+                    }
+                }
+            }
+        }
+        if(canJump==true && isJump==false)
+        {
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                for (int i = 0; i < bone.Length - 1;i++)
+                {
+                    bone[i].AddForce(new Vector2(0, jumpForce),ForceMode2D.Impulse);
+                }
+                isJump = true;
+                currentTime = 0;
+            }
+        }
+        if(isJump)
+        {
+            currentTime += Time.deltaTime;
+            if(currentTime>1f)
+            {
+                isJump = false;
+            }
+        }    
+    }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.gameObject.layer == 3)
+        {
+            isJump = false;
         }
     }
 }
