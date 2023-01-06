@@ -41,7 +41,7 @@ public class LiquMove : MonoBehaviour,IDamageable
                 for (int i = 0; i < bone.Length - 1;i++)
                 {
                     // print(axix);
-                    bone[i].AddForce(new Vector2(axix * speed, 0),ForceMode2D.Force);
+                    bone[i].AddForce(new Vector2(axix * speed, 0)*Time.deltaTime,ForceMode2D.Force);
                 }
             }
         }    
@@ -55,7 +55,7 @@ public class LiquMove : MonoBehaviour,IDamageable
                     for (int i = 0; i < bone.Length - 1;i++)
                     {
                         // print(axixalt);
-                        bone[i].AddForce(new Vector2(axixalt * speed, 0),ForceMode2D.Force);
+                        bone[i].AddForce(new Vector2(axixalt * speed, 0)*Time.deltaTime,ForceMode2D.Force);
                     }
                 }
             }
@@ -78,7 +78,7 @@ public class LiquMove : MonoBehaviour,IDamageable
             {
                 for (int i = 0; i < bone.Length - 1;i++)
                 {
-                    bone[i].AddForce(new Vector2(0, jumpForce)*Time.deltaTime,ForceMode2D.Impulse);
+                    bone[i].AddForce(new Vector2(0, jumpForce)*Time.fixedDeltaTime,ForceMode2D.Impulse);
                 }
                 isJump = true;
                 currentTime = 0;

@@ -1763,8 +1763,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  speed: 15
-  jumpForce: 100
+  speed: 600
+  jumpForce: 300
   climbSpeed: 0
   which: 0100
   canJump: 1
