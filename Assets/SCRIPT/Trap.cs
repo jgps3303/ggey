@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Trap : MonoBehaviour,IMove
 {
-    [SerializeField] GameObject Eggy;
-    [SerializeField] GameObject Yolkie;
     bool top = false;
 
     [SerializeField] float topPosition;
@@ -16,8 +14,8 @@ public class Trap : MonoBehaviour,IMove
     void Start()
     {
         MoveAroundTrap();
-        Eggy = GameObject.Find("Eggy");
-        Yolkie = GameObject.Find("Yolkie");
+        // Eggy = GameObject.Find("Eggy");
+        // Yolkie = GameObject.Find("Yolkie");
     }
 
     // Update is called once per frame
@@ -29,22 +27,22 @@ public class Trap : MonoBehaviour,IMove
     {
         if(other.gameObject.tag =="Yolkie")
         {
-            Destroy(Yolkie);
+            other.gameObject.GetComponentInParent<IDamageable>().Delete();
         }
         if(other.gameObject.tag =="Eggy")
         {
-            Destroy(Eggy);
+            other.gameObject.GetComponentInParent<IDamageable>().Delete();
         }
     }
     void OnCollisionEnter2D(Collision2D other)
     {
         if(other.gameObject.tag =="Yolkie")
         {
-            Destroy(Yolkie);
+            other.gameObject.GetComponentInParent<IDamageable>().Delete();
         }
         if(other.gameObject.tag =="Eggy")
         {
-            Destroy(Eggy);
+            other.gameObject.GetComponentInParent<IDamageable>().Delete();
         }
     }
 

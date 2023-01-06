@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LiquMove : MonoBehaviour
+public class LiquMove : MonoBehaviour,IDamageable
 {
     [SerializeField] Rigidbody2D[] bone;
 
@@ -41,7 +41,7 @@ public class LiquMove : MonoBehaviour
                 for (int i = 0; i < bone.Length - 1;i++)
                 {
                     // print(axix);
-                    bone[i].AddForce(new Vector2(axix * speed, 0));
+                    bone[i].AddForce(new Vector2(axix * speed, 0),ForceMode2D.Force);
                 }
             }
         }    
@@ -55,7 +55,7 @@ public class LiquMove : MonoBehaviour
                     for (int i = 0; i < bone.Length - 1;i++)
                     {
                         // print(axixalt);
-                        bone[i].AddForce(new Vector2(axixalt * speed, 0));
+                        bone[i].AddForce(new Vector2(axixalt * speed, 0),ForceMode2D.Force);
                     }
                 }
             }
@@ -67,7 +67,7 @@ public class LiquMove : MonoBehaviour
                     for (int i = 0; i < bone.Length - 1;i++)
                     {
                         // print(axixalt);
-                        bone[i].AddForce(new Vector2(0,axixalt*climbSpeed));
+                        bone[i].AddForce(new Vector2(0,axixalt*climbSpeed)*Time.deltaTime,ForceMode2D.Force);
                     }
                 }
             }
@@ -78,7 +78,7 @@ public class LiquMove : MonoBehaviour
             {
                 for (int i = 0; i < bone.Length - 1;i++)
                 {
-                    bone[i].AddForce(new Vector2(0, jumpForce),ForceMode2D.Impulse);
+                    bone[i].AddForce(new Vector2(0, jumpForce)*Time.deltaTime,ForceMode2D.Impulse);
                 }
                 isJump = true;
                 currentTime = 0;
@@ -100,5 +100,10 @@ public class LiquMove : MonoBehaviour
         {
             isJump = false;
         }
+    }
+
+    public void Delete()
+    {
+        Destroy(gameObject);
     }
 }
