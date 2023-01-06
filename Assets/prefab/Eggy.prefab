@@ -1733,8 +1733,8 @@ MonoBehaviour:
   - {fileID: 6861038326786070915}
   - {fileID: 6861038326294705196}
   m_Bounds:
-    m_Center: {x: -0.00000047683716, y: 0.00000047683716, z: 0}
-    m_Extent: {x: 5.334999, y: 5.335001, z: 0}
+    m_Center: {x: 0.0000014305115, y: 0.00000047683716, z: 0}
+    m_Extent: {x: 5.335001, y: 5.335001, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -1763,8 +1763,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  speed: 2.39
-  jumpForce: 8
+  speed: 15
+  jumpForce: 100
   climbSpeed: 0
   which: 0100
   canJump: 1
