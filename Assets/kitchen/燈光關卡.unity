@@ -789,6 +789,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6062571939856819824, guid: 6c3fc63e9f1c73c4fa793ea73814e54f, type: 3}
+      propertyPath: speed
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6062571939856819824, guid: 6c3fc63e9f1c73c4fa793ea73814e54f, type: 3}
+      propertyPath: climbSpeed
+      value: 1500
+      objectReference: {fileID: 0}
     - target: {fileID: 6062571939856819827, guid: 6c3fc63e9f1c73c4fa793ea73814e54f, type: 3}
       propertyPath: m_RootOrder
       value: 1
