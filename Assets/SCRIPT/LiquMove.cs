@@ -74,7 +74,7 @@ public class LiquMove : MonoBehaviour,IDamageable
         }
         if(canJump==true && isJump==false)
         {
-            if(Input.GetKeyDown(KeyCode.Space))
+            if(Input.GetKeyDown(KeyCode.UpArrow))
             {
                 for (int i = 0; i < bone.Length - 1;i++)
                 {
