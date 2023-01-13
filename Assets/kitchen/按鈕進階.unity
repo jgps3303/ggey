@@ -1969,6 +1969,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: before@360x
       objectReference: {fileID: 0}
+    - target: {fileID: 4070711871536759660, guid: 09ed363c2bb732142815a53399b2988d, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4070711871536759662, guid: 09ed363c2bb732142815a53399b2988d, type: 3}
       propertyPath: OnTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2166,6 +2170,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6062571939856819824, guid: 6c3fc63e9f1c73c4fa793ea73814e54f, type: 3}
+      propertyPath: speed
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6062571939856819824, guid: 6c3fc63e9f1c73c4fa793ea73814e54f, type: 3}
+      propertyPath: climbSpeed
+      value: 1500
+      objectReference: {fileID: 0}
     - target: {fileID: 6062571939856819827, guid: 6c3fc63e9f1c73c4fa793ea73814e54f, type: 3}
       propertyPath: m_RootOrder
       value: 2
