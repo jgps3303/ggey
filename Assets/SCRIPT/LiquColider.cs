@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LiquColider : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class LiquColider : MonoBehaviour
         if((con[0]&&con[1]))
         {
             print("end");
+            SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex+1);
         }
     }
     void OnCollisionEnter2D(Collision2D other)
